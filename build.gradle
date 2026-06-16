@@ -14,7 +14,7 @@ repositories {
 }
 
 def runeLiteVersion = 'latest.release'
-def pluginMainClass = 'com.viewportshrink.ViewportShrinkPluginTest'
+def pluginMainClass = 'com.letterbox.LetterboxPluginTest'
 
 dependencies {
 	compileOnly group: 'net.runelite', name:'client', version: runeLiteVersion
@@ -27,7 +27,7 @@ dependencies {
 	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
 }
 
-group = 'com.viewportshrink'
+group = 'com.letterbox'
 
 tasks.withType(JavaCompile).configureEach {
 	options.encoding = 'UTF-8'

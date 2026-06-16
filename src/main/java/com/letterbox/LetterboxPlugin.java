@@ -1,4 +1,4 @@
-package com.viewportshrink;
+package com.letterbox;
 
 import com.google.inject.Provides;
 import java.awt.Canvas;
@@ -21,16 +21,16 @@ import net.runelite.client.plugins.PluginDescriptor;
 
 @Slf4j
 @PluginDescriptor(
-	name = "Viewport Shrink",
+	name = "Letterbox",
 	description = "Renders the game at a smaller size centered in black space (Resizable - Classic)"
 )
-public class ViewportShrinkPlugin extends Plugin
+public class LetterboxPlugin extends Plugin
 {
 	@Inject
 	private Client client;
 
 	@Inject
-	private ViewportShrinkConfig config;
+	private LetterboxConfig config;
 
 	// The game engine component (canvas.getParent(), obfuscated class "client"). Resizing THIS is
 	// what makes the game reflow its UI; resizing the canvas itself only crops the rendered frame.
@@ -54,7 +54,7 @@ public class ViewportShrinkPlugin extends Plugin
 			final Component engine = canvas == null ? null : canvas.getParent();
 			if (engine == null || !(engine.getParent() instanceof Container))
 			{
-				log.debug("Viewport Shrink: game engine/holder not available; nothing to do");
+				log.debug("Letterbox: game engine/holder not available; nothing to do");
 				return;
 			}
 
@@ -115,7 +115,7 @@ public class ViewportShrinkPlugin extends Plugin
 	@Subscribe
 	public void onConfigChanged(ConfigChanged event)
 	{
-		if (!ViewportShrinkConfig.GROUP.equals(event.getGroup()))
+		if (!LetterboxConfig.GROUP.equals(event.getGroup()))
 		{
 			return;
 		}
@@ -161,8 +161,8 @@ public class ViewportShrinkPlugin extends Plugin
 	}
 
 	@Provides
-	ViewportShrinkConfig provideConfig(ConfigManager configManager)
+	LetterboxConfig provideConfig(ConfigManager configManager)
 	{
-		return configManager.getConfig(ViewportShrinkConfig.class);
+		return configManager.getConfig(LetterboxConfig.class);
 	}
 }

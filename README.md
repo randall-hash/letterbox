@@ -1,4 +1,4 @@
-# Viewport Shrink
+# Letterbox
 
 A RuneLite plugin that renders the game at a smaller size than the client window and fills the
 leftover space with black — a small play area floating in black space inside a maximized or
@@ -14,7 +14,7 @@ correct) — it is not a crop or an overlay.
 | Target width | 1200 | Width in pixels of the play area. Clamped to the window size. |
 | Target height | 800 | Height in pixels of the play area. Clamped to the window size. |
 
-Config group: `viewport-shrink`.
+Config group: `letterbox`.
 
 ## How it works
 

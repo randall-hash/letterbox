@@ -1,14 +1,14 @@
-package com.viewportshrink;
+package com.letterbox;
 
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.Range;
 
-@ConfigGroup(ViewportShrinkConfig.GROUP)
-public interface ViewportShrinkConfig extends Config
+@ConfigGroup(LetterboxConfig.GROUP)
+public interface LetterboxConfig extends Config
 {
-	String GROUP = "viewport-shrink";
+	String GROUP = "letterbox";
 
 	@Range(
 		min = 200,
