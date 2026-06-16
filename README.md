@@ -3,8 +3,6 @@
 Shrink the game into a small play area floating in black space, inside a maximized or fullscreen
 RuneLite window. Built for the **Resizable – Classic** layout.
 
-<!-- Add a screenshot here once captured: ![Letterbox in action](images/screenshot.png) -->
-
 ## What it does
 
 In Resizable mode the game stretches to fill your whole window. On a large or ultrawide monitor
