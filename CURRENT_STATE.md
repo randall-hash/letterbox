@@ -44,23 +44,22 @@ tracked. One gray area to disclose in the Hub PR: "no moving/resizing click zone
 components" — we resize the whole viewport uniformly (smaller, no advantage; Stretched Mode is
 precedent). Reviewer's call.
 
-## Next steps — Plugin Hub submission (only thing left)
+## Plugin Hub submission — SUBMITTED, awaiting review
 
-1. Fork `runelite/plugin-hub`, branch off `master`.
-2. Add a file `plugins/letterbox` containing:
-   ```
-   repository=https://github.com/randall-hash/letterbox.git
-   commit=<full 40-char hash of letterbox master HEAD>
-   ```
-   Get the hash with `git -C <letterbox repo> rev-parse origin/master` (must be the latest pushed
-   commit; update it if we commit anything else first).
-3. Open the PR. **In the PR description, proactively note the gray area**: the plugin resizes the
-   whole viewport uniformly (smaller, no advantage; built-in Stretched Mode is precedent) — re: the
-   "no moving/resizing click zones for 3D components" guideline.
-4. A RuneLite dev reviews. Address feedback, repush letterbox if needed, bump the commit hash.
+- **PR:** https://github.com/runelite/plugin-hub/pull/12642 ("Add Letterbox plugin")
+- Manifest `plugins/letterbox` pins commit `13f610b` (fork: `randall-hash/plugin-hub`, branch
+  `add-letterbox`; local clone at `/tmp/letterbox-plugin-hub`).
+- **CI build: PASS** (43s). Gray area (uniform whole-viewport resize vs the "click zones for 3D
+  components" guideline) disclosed in the PR description.
 
-Listing assets are already in the repo (README, tags in runelite-plugin.properties, icon.png).
-A screenshot is optional and can be added later with a single commit (no resubmission needed).
+### If the reviewer requests changes
+1. Make the change in the letterbox repo, commit, `git push origin master`.
+2. Bump the `commit=` hash in `plugins/letterbox` to the new HEAD, push the `add-letterbox` branch
+   (`git -C /tmp/letterbox-plugin-hub commit -am ... && git push`).
+3. CI rebuilds automatically on the PR.
+
+A screenshot is optional and can be added to the letterbox README later with a single commit (no
+resubmission needed).
 
 ## How to test
 
