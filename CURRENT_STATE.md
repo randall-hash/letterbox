@@ -8,7 +8,9 @@ Session handoff. Read this first to resume.
 centered in black space, in Resizable – Classic. UI reflows correctly and clicks stay aligned —
 including with the sidebar open/closed and after resizing the outer window.
 
-Committed to `master`. Public GitHub repo + Plugin Hub submission are the next steps.
+Pushed to a public GitHub repo: **https://github.com/randall-hash/letterbox** (`master`).
+Listing assets (user-facing README, search tags, `icon.png`) are done. Only the Plugin Hub
+submission remains.
 
 > Note: the local working directory is still named `viewport-shrink/` (the plugin was renamed to
 > Letterbox after the folder was created). Harmless — it's just a folder name.
@@ -42,12 +44,23 @@ tracked. One gray area to disclose in the Hub PR: "no moving/resizing click zone
 components" — we resize the whole viewport uniformly (smaller, no advantage; Stretched Mode is
 precedent). Reviewer's call.
 
-## Next steps
+## Next steps — Plugin Hub submission (only thing left)
 
-1. **Public GitHub repo** + push `master` (done this session if you see a remote). Plugin Hub builds
-   from the public source by commit hash.
-2. **Submit to the RuneLite Plugin Hub**: PR to `runelite/plugin-hub` adding a manifest file that
-   points at the repo + commit hash, with the click-zone gray area noted in the PR description.
+1. Fork `runelite/plugin-hub`, branch off `master`.
+2. Add a file `plugins/letterbox` containing:
+   ```
+   repository=https://github.com/randall-hash/letterbox.git
+   commit=<full 40-char hash of letterbox master HEAD>
+   ```
+   Get the hash with `git -C <letterbox repo> rev-parse origin/master` (must be the latest pushed
+   commit; update it if we commit anything else first).
+3. Open the PR. **In the PR description, proactively note the gray area**: the plugin resizes the
+   whole viewport uniformly (smaller, no advantage; built-in Stretched Mode is precedent) — re: the
+   "no moving/resizing click zones for 3D components" guideline.
+4. A RuneLite dev reviews. Address feedback, repush letterbox if needed, bump the commit hash.
+
+Listing assets are already in the repo (README, tags in runelite-plugin.properties, icon.png).
+A screenshot is optional and can be added later with a single commit (no resubmission needed).
 
 ## How to test
 
